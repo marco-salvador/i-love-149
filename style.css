@@ -285,3 +285,365 @@ body::before {
   background: #2563eb;
   color: white;
 }
+
+
+ /* ================================
+   EXTRA WEBSITE DESIGNS & ANIMATIONS
+   ================================ */
+
+
+/* ANIMATED BACKGROUND */
+
+body {
+  overflow-x: hidden;
+}
+
+body::before {
+  animation: backgroundMove 12s ease-in-out infinite alternate;
+}
+
+@keyframes backgroundMove {
+  0% {
+    transform: scale(1.05);
+  }
+
+  100% {
+    transform: scale(1.12);
+  }
+}
+
+
+/* FLOATING LIGHTS */
+
+body::after {
+  pointer-events: none;
+}
+
+
+/* TITLE ANIMATION */
+
+header h1 {
+  animation: titleGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes titleGlow {
+  from {
+    text-shadow: 0 0 5px rgba(250, 204, 21, 0.3);
+  }
+
+  to {
+    text-shadow:
+      0 0 10px rgba(250, 204, 21, 0.8),
+      0 0 25px rgba(250, 204, 21, 0.4);
+  }
+}
+
+
+/* NAVIGATION */
+
+nav a {
+  position: relative;
+  transition: 0.3s ease;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+
+  left: 50%;
+  bottom: 3px;
+
+  width: 0;
+  height: 2px;
+
+  background: #facc15;
+
+  transform: translateX(-50%);
+  transition: 0.3s ease;
+}
+
+nav a:hover::after {
+  width: 70%;
+}
+
+
+/* CARDS */
+
+.tropa-card {
+  position: relative;
+
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
+
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+
+/* CARD GLOW */
+
+.tropa-card::before {
+  content: "";
+
+  position: absolute;
+
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+
+  border-radius: 20px;
+
+  background: linear-gradient(
+    135deg,
+    #facc15,
+    #6366f1,
+    #06b6d4,
+    #facc15
+  );
+
+  background-size: 300% 300%;
+
+  opacity: 0;
+
+  z-index: -1;
+
+  transition: 0.4s ease;
+
+  animation: cardBorder 5s linear infinite;
+}
+
+.tropa-card:hover::before {
+  opacity: 0.8;
+}
+
+@keyframes cardBorder {
+
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+
+}
+
+
+/* CARD HOVER */
+
+.tropa-card:hover {
+  transform: translateY(-12px) scale(1.02);
+
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.5),
+    0 0 25px rgba(99, 102, 241, 0.25);
+}
+
+
+/* IMAGE */
+
+.tropa-card img {
+  transition:
+    transform 0.6s ease,
+    filter 0.6s ease;
+}
+
+.tropa-card:hover img {
+  transform: scale(1.07);
+
+  filter: brightness(1.08);
+}
+
+
+/* CARD CONTENT */
+
+.card-content h3 {
+  transition: 0.3s ease;
+}
+
+.tropa-card:hover .card-content h3 {
+  transform: translateX(5px);
+
+  text-shadow:
+    0 0 10px rgba(250, 204, 21, 0.6);
+}
+
+
+/* BUTTON */
+
+.button {
+  position: relative;
+
+  overflow: hidden;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.button::before {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: -100%;
+
+  width: 100%;
+  height: 100%;
+
+  background: rgba(255, 255, 255, 0.3);
+
+  transform: skewX(-20deg);
+
+  transition: 0.5s;
+}
+
+.button:hover::before {
+  left: 120%;
+}
+
+.button:hover {
+  transform: translateY(-3px) scale(1.05);
+
+  box-shadow:
+    0 0 10px rgba(250, 204, 21, 0.7),
+    0 0 25px rgba(250, 204, 21, 0.3);
+}
+
+
+/* INTRO TEXT */
+
+.intro h2 {
+  animation: introFloat 3s ease-in-out infinite;
+}
+
+@keyframes introFloat {
+
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-5px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+
+}
+
+
+/* FOOTER */
+
+footer {
+  border-top: 1px solid rgba(250, 204, 21, 0.2);
+}
+
+
+/* TEXT SELECTION */
+
+::selection {
+  background: #2563eb;
+  color: white;
+}
+
+
+/* SMOOTH SCROLL */
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+  .tropa-card:hover {
+    transform: translateY(-5px);
+  }
+
+  .tropa-card:hover img {
+    transform: scale(1.03);
+  }
+
+}
+
+
+/* =================================
+   GLASS EFFECT PARA SA TROPA CARDS
+   ================================= */
+
+.tropa-card {
+  background: rgba(31, 41, 55, 0.72);
+
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.35),
+    inset 0 1px 1px rgba(255, 255, 255, 0.08);
+
+  transition: all 0.4s ease;
+}
+
+
+/* HOVER EFFECT */
+
+.tropa-card:hover {
+  background: rgba(31, 41, 55, 0.60);
+
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+
+  transform: translateY(-10px);
+
+  border-color: rgba(250, 204, 21, 0.5);
+
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.45),
+    0 0 20px rgba(250, 204, 21, 0.15);
+}
+
+
+/* IMAGE */
+
+.tropa-card img {
+  display: block;
+
+  transition: transform 0.5s ease;
+}
+
+.tropa-card:hover img {
+  transform: scale(1.04);
+}
+
+
+/* CARD CONTENT */
+
+.card-content {
+  background: transparent;
+}
+
+header {
+  background: rgba(30, 41, 59, 0.45);
+
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+
+  text-align: center;
+  padding: 40px 20px 25px;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+}
