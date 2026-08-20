@@ -262,23 +262,54 @@ footer {
 
 
 
+body {
+  font-family: Arial, sans-serif;
+  color: white;
+  line-height: 1.6;
+
+  background: #111827;
+}
+
+
+/* BACKGROUND IMAGE */
+
 body::before {
   content: "";
   position: fixed;
 
   top: 0;
   left: 0;
+
   width: 100%;
   height: 100%;
 
-  background-image: url("lugar.jpg");
+  background-image: url("sir.jpg");
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
 
-  filter: blur(6px);
+  filter: blur(7px);
   transform: scale(1.05);
 
-  opacity: 0.35;
+  opacity: 0.40;
 
   z-index: -2;
+}
+
+
+/* DARK OVERLAY */
+
+body::after {
+  content: "";
+  position: fixed;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background: rgba(15, 23, 42, 0.45);
+
+  z-index: -1;
 }
